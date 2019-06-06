@@ -1,0 +1,19 @@
+/* To turn debugging on or off, just misspell the debug css in the index.html file*/
+
+body * {
+	color:                    hsla(210, 100%, 100%, 0.88) !important;
+	background:               hsla(210, 100%,  50%, 0.33) !important;
+	outline:    0.25rem solid hsla(210, 100%, 100%, 0.50) !important;
+}
+
+/* The following is an example of a class, which is intended to be attributed to anything*/
+/* it appears that it is important to name class with the prefix of the filename it is in:*/
+/*i.e. debug-etc... class is in debug.css?*/
+.debug-center {
+	display:         flex;
+	justify-content: center;
+	align-items:     center;
+}
+
+/*About Colour: hsla stands for hue, saturation, luminance and transparency*/
+/*Note: to see a colour as it was intended, set luminance to 50%*/
