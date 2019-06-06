@@ -17,6 +17,35 @@
 <body>
     <!-- This is an article!  -->
     <!-- 'id' creates a tag that can be reference later in the URL -->
+    <article id="second-post">
+      <h1><a href="#second-post">Update: Site now uses AWS Codepipline</a></h1>
+      <h2>Add, Commit, Push to remote repo -> instantly deploys!</h2>
+
+      <time datetime="06-07-2019">JUN. 7, 2019</time>
+      <p>
+        I wanted to find a way to use my pre-existing GitHub remote repository to somehow directly connect to my AWS s3 bucket for this very website. I found some advice on <em>Medium</em> with a quick google search that outlines how to <a href="https://medium.com/@sithum/automate-static-website-deployment-from-github-to-s3-using-aws-codepipeline-16acca25ebc1">automate static website deployment from Github to S3 using AWS CodePipeline</a>.
+      </p>
+
+      <p>
+        This is a bit of a mouthful, but it turned out to be pretty easy and at $1/month, and only for months that I actually push changes to my repo, it seems like a pretty good deal to me.
+      </p>
+
+      <h3>AWS Billing?</h3>
+      <p>
+        Currently I use a few different AWS services as a free-tier user:
+        <ul>
+          <li>route53: domain registration;</li>
+          <li>s3: static web hosting using public buckets and files;</li>
+          <li>Certificate management: <em>free</em> SSL certificate;</li>
+          <li>CloudFront: redirect HTTP requests to HTTPS; and finally,</li>
+          <li>Codepipeline: to automate deployment from Github to S3 using webhooks.</li>
+        </ul>
+      </p>
+      <p>
+        However, not all of these services are <em>free</em>, but I know that the charges are minimal. Still, I wanted to review my billing with AWS. Luckily they have a great <a href="https://console.aws.amazon.com/billing/">billing & cost management dashboard</a> integrated into the AWS console.
+      </p>
+    </article>
+
     <article id="first-post">
       <h1><a href="#first-post">This is the <strong>First</strong> of hopefully many <em>posts</em>.</a></h1>
       <h2>If you are reading this, you have scrolled to the bottom, or I am very lazy.</h2>
