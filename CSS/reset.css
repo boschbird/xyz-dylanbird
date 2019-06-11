@@ -1,6 +1,6 @@
 /* This is a comment in CSS: this is just to reset any assumptions that renderer has about styling*/
 /* This is why it comes first in the tree on the html file. i.e. before other styling */
-:root { font: 20px/1.2 "Roboto", sans-serif; } /* or html */
+:root { font: 20px/1.2 "Helvetica", sans-serif; } /* or html */
 
 body,
 body * {
