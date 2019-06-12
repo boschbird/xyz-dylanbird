@@ -72,6 +72,7 @@
   width: 0;
 }*/
 .splash-home {
+  background-color: black; /*if image doesn't load*/
   background-image: url('../images/dbl-rot-tesseract2.gif');
   background-position: center center;
   background-repeat: no-repeat;
