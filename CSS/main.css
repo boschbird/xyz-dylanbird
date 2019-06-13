@@ -1,8 +1,55 @@
 /*----------------------------------------------------------------------------*/
 /*GLOBAL STYLES*/
 /*----------------------------------------------------------------------------*/
-
-
+html {
+  background-color: #000;
+}
+body {
+  display: flex;
+  flex-direction: column; /*header, content, footer vertically stacked*/
+  min-height: 100vh;
+}
+h1  { 
+  font-weight: 700;
+  font-size: 2.0rem;
+  line-height: 1.2; 
+}
+h1 > a {
+  color: pink;
+  text-decoration: none;
+}
+h2 { 
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: hsl(000, 000%, 83%); 
+}
+h3 { 
+  font-weight: 1000;
+  line-height: 1.2;
+  color: rgba(255, 192, 203, 83%);  /*transparent pink, to match the text*/
+}
+p {
+  font-weight: 400;
+  font-size: 1.0rem;
+  line-height: 1.5; 
+  color: hsl(000, 000%, 083%);
+  margin-bottom: 1.0rem;
+}
+img {
+  width: 100%;
+}
+figcaption {
+  display: flex;
+  justify-content: center;    
+}
+/*----------------------------------------------------------------------------*/
+/*CONTAINER STYLES*/
+/*----------------------------------------------------------------------------*/
+.content-container {
+  flex-grow: 1;
+  padding-top: 15vh;
+  width: 100%;
+}
 /*----------------------------------------------------------------------------*/
 /*HEADER STYLES*/
 /*----------------------------------------------------------------------------*/
@@ -12,6 +59,7 @@
   position: fixed;
   width: 100%;
   z-index: 20; /*creates layers*/
+  margin-bottom: 20px;
 }
 .header h1 {
   color: #fff; /*white*/
@@ -20,6 +68,9 @@
   font-weight: bold;
   padding: 3vh 60px 3vh 60px;
   position: relative;
+}
+.header h1 > a {
+  color: #fff;
 }
 .header h1:hover,
 .header h1:active {
@@ -48,6 +99,69 @@
 .header-nav > li:active {
   background-color: pink; /*pink*/
   color: #fff; /*white*/
+}
+/*----------------------------------------------------------------------------*/
+/*FOOTER STYLES*/
+/*----------------------------------------------------------------------------*/
+.footer {
+  background-color: hsl(0, 0%, 25%);
+  padding: 5vh 0 3vh;
+  text-align: center;
+  position: relative;
+}
+.footer h3 {
+  color: #fff;
+  padding-top: 1.5em;
+  text-transform: uppercase;
+}
+.footer h3 span {
+  color: #fff;
+}
+.footer-nav li {
+  color: #fff;
+  display: inline-block;
+  margin: 2em 1em 0;
+}
+.footer-nav li:hover,
+.footer-nav li:active {
+  color: pink;
+}
+/*----------------------------------------------------------------------------*/
+/*SOCIAL STYLES*/
+/*----------------------------------------------------------------------------*/
+.social-link {
+  background: rgba(150, 150, 150, 0.5);
+  border-radius: 99px;
+  box-sizing: border-box;
+  display: inline-box;
+  height: 3.0em;
+  padding-top: 0.47em;
+  vertical-align: middle;
+  width: 3.0em;
+}
+.social-icon {
+  display: inline-block;
+  vertical-align: center;
+  justify-content: center;
+}
+.social-icon img{
+  filter: brightness(0%);
+  max-width: 70%;
+}
+.social-link:hover {
+  background: white;
+}
+.social-icon img:hover {
+  filter: brightness(100%)
+}
+.social-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.social-list > li {
+  display: inline-block;
+  margin: 0 0.5em;
 }
 /*----------------------------------------------------------------------------*/
 /*SPLASH STYLES*/
@@ -93,105 +207,50 @@
 /*----------------------------------------------------------------------------*/
 /*BLOG STYLES*/
 /*----------------------------------------------------------------------------*/
-.blog {
-  background: linear-gradient(hsl(0, 0%, 25%), black 15vh); /*create a gradient effect to delineate between articles*/
-  display: grid;
-  /* create a grid with some absolute width separations*/
-  grid-template-columns: 1fr 0.5in [aye] 1.25in 6.5in 1.25in [bee] 0.5in 1fr;
-  padding: 0.5in 0; /* add some padding above and below (0.5in), but not left and right (0)*/
-  position: relative;
-  top: 12vh;
+.blog-box {
+  background: linear-gradient(hsl(0,0%,25%), #000 1in);
+  padding: 5vh 40vh 5vh 40vh; /*top right bottom left shorthand*/
 }
-.blog div {
-  grid-column: aye / bee;
+.blog-box:first-child {
+  background: #000;
+  padding-top: 0; 
 }
-/* incorporate a responsive design, dependent on browser width, N.B. the percentage widths*/
-/* this is called a 'media query'*/
-@media (max-width: 8.5in) {
-  .blog { grid-template-columns: 1fr 5% [aye] 15% 60% 15% [bee] 5% 1fr; }
-}
-/* Note that 700 is the default BOLD WEIGHTING of text*/
-/* Note 2: REM as in Root EM. While em is relative to the font size of its direct*/
-/* or nearest parent, rem is only relative to the html (root) font-size . */
-.blog h1  { 
-  font-weight: 700;
-  font-size: 2.0rem;
-  line-height: 1.2; 
-}
-.blog h1 > a {
-  color: pink;
-  text-decoration: none;
-}
-.blog h2 { 
-  font-weight: 400;
-  font-size: 1.5rem;
-  color: hsl(000, 000%, 83%); 
-}
-.blog-time {
-  font-weight: 700; /*bold*/
-  line-height: 1.2;
-  color: #fff;
-  margin-top: 0.4rem;
-  margin-bottom: 2.4rem;
-}
-.blog h3   { 
-  font-weight: 1000;
-  line-height: 1.2;
-  color: rgba(255, 192, 203, 83%);  /*transparent pink, to match the text*/
-}
-.blog p {
-  margin-bottom: 1.0rem;
-}
-@media (max-width: 8.5in) { 
-  :root { font-size: 18px; } 
-}
-@media (max-width: 5.0in) { 
-  :root { font-size: 16px; }
-}
-/*images fall between which grid columns*/
-.blog-fig {
-  grid-column: 4 / 5;
-}
-/*Anything with a 'size-1 class' in an 'img' will inherit this property*/
-.blog-fig img {
-  width: 100%;
-}
-/*This is for horizontally centering the caption*/
-.blog figcaption {
-  display: flex;
-  justify-content: center;    
-}
-
-/*----------------------------------------------------------------------------*/
-/*TEXT STYLES*/
-/*----------------------------------------------------------------------------*/
-.text p {
+.blog-box p {
   font-weight: 400;
   font-size: 1.0rem;
   line-height: 1.5; 
   color: hsl(000, 000%, 083%);
 }
-.text ul {
+.blog-box ul {
   color: hsl(000, 000%, 083%); 
   list-style-position: inside;
 }
-
-.text a {
+.blog-box a {
   color: pink;
+  font-weight: 550;
 }
-.text a:hover,
-.text a:active {
-  text-decoration: pink underline overline wavy;
+.blog-box a:hover,
+.blog-box a:active {
+  text-decoration: pink underline dashed;
+}
+.blog-date {
+  font-weight: 700;
+  font-size: 1.0rem;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 1.0rem;
 }
 /*----------------------------------------------------------------------------*/
 /*CODE STYLES*/
 /*----------------------------------------------------------------------------*/
-
-.nothing {
-  position: relative;
-  top: 20vh;
+.code-box {
+  background-color: #000;
 }
 
 /*----------------------------------------------------------------------------*/
 /*ABOUT ME STYLES*/
 /*----------------------------------------------------------------------------*/
+
+.about-box {
+  background-color: #000;
+}
