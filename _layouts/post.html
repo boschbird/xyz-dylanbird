@@ -1,0 +1,33 @@
+---
+layout: blog-post
+---
+
+<div class="content-container">
+
+  <div class="page blog-index">
+    <div class="col-two blog-cols">
+
+      <div class="col col-aside blog-recent">
+        {% include blognav.html %}
+      </div>
+
+      <div class="col col-content">
+        <div class="blog-previews">
+          <div class="blog-posts">
+            <header class="post-header">
+              <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+              <div class="post-date-time">
+                <span>{{ post.date | date: '%B %d, %Y' }}</span>
+              </div>
+            </header>
+            <div class="blog-content">
+            {{ content }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div> 

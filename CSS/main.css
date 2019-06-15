@@ -13,20 +13,26 @@ h1  {
   font-weight: 700;
   font-size: 2.0rem;
   line-height: 1.2; 
+  color: #fff; /*white*/
 }
 h1 > a {
-  color: pink;
   text-decoration: none;
 }
 h2 { 
-  font-weight: 400;
-  font-size: 1.5rem;
-  color: hsl(000, 000%, 83%); 
+  font-weight: 700;
+  font-size: 2.0rem;
+  color: pink;
+  line-height: 1.2; 
 }
 h3 { 
   font-weight: 1000;
   line-height: 1.2;
   color: rgba(255, 192, 203, 83%);  /*transparent pink, to match the text*/
+}
+h4 {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 p {
   font-weight: 400;
@@ -41,14 +47,6 @@ img {
 figcaption {
   display: flex;
   justify-content: center;    
-}
-/*----------------------------------------------------------------------------*/
-/*CONTAINER STYLES*/
-/*----------------------------------------------------------------------------*/
-.content-container {
-  flex-grow: 1;
-  padding-top: 15vh;
-  width: 100%;
 }
 /*----------------------------------------------------------------------------*/
 /*HEADER STYLES*/
@@ -205,40 +203,101 @@ figcaption {
   margin-bottom: 0.25em;
 }
 /*----------------------------------------------------------------------------*/
-/*BLOG STYLES*/
+/*LAYOUT STYLES*/
 /*----------------------------------------------------------------------------*/
-.blog-box {
-  background: linear-gradient(hsl(0,0%,25%), #000 1in);
-  padding: 5vh 40vh 5vh 40vh; /*top right bottom left shorthand*/
+.content-container {
+  display: flex;
+  flex: 1 1 auto; /*shorthand => flex-grow flex-shrink flex-basis*/
+  padding-top: 15vh;
+  width: 100%;
 }
-.blog-box:first-child {
-  background: #000;
-  padding-top: 0; 
+.col-two {
+  display: flex;
 }
-.blog-box p {
-  font-weight: 400;
-  font-size: 1.0rem;
-  line-height: 1.5; 
-  color: hsl(000, 000%, 083%);
+.col-two .col-aside {
+  flex: 0 0 20em;
+  order: 1;
 }
-.blog-box ul {
-  color: hsl(000, 000%, 083%); 
-  list-style-position: inside;
+.col-two .col-content {
+  flex: 1;
 }
-.blog-box a {
+/*----------------------------------------------------------------------------*/
+/*PAGES STYLES*/
+/*----------------------------------------------------------------------------*/
+.page {
+  margin: 10vh auto 15vh;
+  max-width: 980px;
+  width: 85vw;
+}
+.page h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.page h2 {
+  margin-bottom: 0.5em;
+}
+.page h4 {
+  margin-bottom: 1em;
+}
+.page a {
   color: pink;
   font-weight: 550;
 }
-.blog-box a:hover,
-.blog-box a:active {
+.page a:hover,
+.page a:active {
   text-decoration: pink underline dashed;
 }
-.blog-date {
-  font-weight: 700;
-  font-size: 1.0rem;
-  line-height: 1.2;
-  color: #fff;
-  margin-bottom: 1.0rem;
+/*----------------------------------------------------------------------------*/
+/*BLOG STYLES*/
+/*----------------------------------------------------------------------------*/
+.blog-recent {
+  text-align: right;
+}
+.blog-recent > h4 ~ h4 {
+  margin-top: 2em;
+}
+.blog-title-list {
+  list-style: none;
+  padding: 0;
+  color: white;
+}
+.blog-title-list li ~ li {
+  margin-top: 1.5em;
+}
+.blog-title-list a {
+  color: pink;
+}
+.blog-title-list span {
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+.blog-posts:not(:first-child) {
+  border-top: 2px dashed white;
+  margin-top: 1em;
+  padding-top: 1.5em;
+}
+.blog-posts .post-header {
+  font-size: 0.8rem;
+}
+.post-header {
+  margin-bottom: 1.5em;
+}
+.post-header .post-date-time {
+  color: white;
+  font-style: bold;
+  text-transform: uppercase;
+}
+.blog-previews {
+  display: flex;
+  flex-direction: column;
+}
+.blog-content > ul {
+  color: hsl(000, 000%, 083%);
+  list-style-type: circle;
+  margin-left: 2rem;
 }
 /*----------------------------------------------------------------------------*/
 /*CODE STYLES*/
@@ -246,11 +305,9 @@ figcaption {
 .code-box {
   background-color: #000;
 }
-
 /*----------------------------------------------------------------------------*/
 /*ABOUT ME STYLES*/
 /*----------------------------------------------------------------------------*/
-
 .about-box {
   background-color: #000;
 }

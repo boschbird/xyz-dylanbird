@@ -1,0 +1,36 @@
+---
+title: blog
+layout: default
+---
+
+<div class="content-container">
+
+  <div class="page blog-index">
+    <div class="col-two blog-cols">
+
+      <div class="col col-aside blog-recent">
+        {% include blognav.html %}
+      </div>
+
+      <div class="col col-content">
+        <div class="blog-previews">
+        <!-- cool jekyll for loop using post variables!! -->
+          {% for post in site.posts limit:5 %}
+            <div class="blog-posts">
+              <header class="post-header">
+                <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <div class="post-date-time">
+                  <span>{{ post.date | date: '%B %d, %Y' }}</span>
+                </div>
+              </header>
+              <h3> Preview </h3>
+              {{ post.excerpt | truncatewords: 12 }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div> 

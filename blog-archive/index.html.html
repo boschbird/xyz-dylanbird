@@ -1,0 +1,21 @@
+---
+title: blog archive
+layout: default
+---
+
+<div class="content-container">
+
+  <div class="page blog-content">
+
+        <ul class="blog-title-list">
+        {% for post in site.posts %}
+          <li>
+            <em>{{ post.date | date: '%d/%m/%Y: ' }}</em>
+            <a href="{{ post.url }}">{{ post.title }}</a> 
+          </li>
+        {% endfor %}
+        </ul>
+
+  </div>
+
+</div> 
