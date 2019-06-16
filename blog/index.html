@@ -23,8 +23,8 @@ layout: default
                   <span>{{ post.date | date: '%B %d, %Y' }}</span>
                 </div>
               </header>
-              <h3> Preview </h3>
-              {{ post.excerpt | truncatewords: 12 }}
+              {{ post.excerpt | truncatewords: 19 }}
+              <a href="{{ post.url }}">read more</a>
             </div>
           {% endfor %}
         </div>

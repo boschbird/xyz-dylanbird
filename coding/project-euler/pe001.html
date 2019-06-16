@@ -1,0 +1,41 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe001/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 1: Multiples of 3 and 5</h2>
+    <p>
+      Find the sum of all multiples of 3 and 5 below 1000. Run this solution at repl.io 
+      <a href="https://repl.it/@DylanBird/PE001-Multiples-of-3-and-5">here</a>.
+    </p>
+    </p>
+    <pre>
+      <code class="language-python">
+        # non-pythonic way
+        result = 0
+        n = 1 
+        while n < 1000: 
+          if n % 3 == 0 or n % 5 == 0: 
+            result += n 
+          n += 1 
+          
+        print("The sum of all multiples of 3 or 5 below 1000 is " + str(result)) 
+        
+        # pythonic solution 1
+        listcomp_result = [i for i in range(1,1000) if i % 3 == 0 or i % 5 == 0] 
+        print() 
+        print(sum(listcomp_result)) 
+         
+        # pythonic solution 2 
+        gen_result = (i for i in range(1,1000) if i % 3 == 0 or i % 5 == 0) 
+        print()
+        print(sum(gen_result)) 
+      </code>
+    </pre>
+
+    
+  </div>
+</div>
