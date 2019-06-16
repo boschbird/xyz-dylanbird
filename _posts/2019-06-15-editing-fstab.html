@@ -1,0 +1,36 @@
+---
+layout: post
+title: Editing fstab for mounting at startup.
+permalink: /editing-fstab/
+---
+
+<p>
+  I use <a href="https://www.plex.tv">Plex</a> as a media server on my laptop in order to categorise my local tv/movie content which exists in two external hard drives connected to my wireless router. This way I can cast all of my local media to my tv using a chromecast with a netflix-like interface.
+</p>
+
+<p>
+  The only <em>hard*</em> part about setting up Plex on a linux computer is permanently mounting networked hard drives.
+  In order to do this go to <code>/etc</code> in your root folder as the super-user/root. There are a few different ways to open a folder as root depending on your linux distro and I'll leave that part to the reader. Also check that in your root folder that there exists a <code>/media</code> folder, and if not, create one.
+</p>
+<p>
+  Once you have <em>fstab</em> in your favourite text editor, you need to append the following line (all on one line) to the bottom of the page:
+</p>
+<p>
+  <code>//192.168.1.2/[HARD-DRIVE-NAME] /media/[hard-drive-folder]/ cifs username=[YOUR-USERNAME],password=[YOUR-PASSWORD],vers=1.0,iocharset=utf8,uid=1000 0 0</code>
+</p>
+
+<p>
+  Where:
+  <ul>
+    <li><code>192.168.1.2</code> is the directory of my wireless router. This could be different for your network.</li>
+    <li><code>[HARD-DRIVE-NAME]</code> is the name of your hard drive in the network;</li>
+    <li><code>[hard-drive-folder]</code> is the name you want to call your hard drive folder; and,</li>
+    <li><code>[YOUR-USERNAME]</code> and <code>[YOUR-PASSWORD]</code> are your root linux username and password.</li>
+  </ul>
+</p>
+<p>
+  Once you've saved the fstab file, make sure your hard drive/s is/are connected properly and reboot your machine. You should find the hard drives have been safely mounted at startup!
+</p>
+<p>
+  *: hard for me. Probably obvious to a lot of linux users.
+</p>

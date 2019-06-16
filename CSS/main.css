@@ -41,6 +41,10 @@ p {
   color: hsl(000, 000%, 083%);
   margin-bottom: 1.0rem;
 }
+code {
+  color: blue;
+  background: hsl(000, 000%, 083%);
+}
 img {
   width: 100%;
 }

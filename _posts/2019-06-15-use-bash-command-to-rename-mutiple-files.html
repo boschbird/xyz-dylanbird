@@ -1,0 +1,37 @@
+---
+layout: post
+title: Use <em>rename</em> bash command for multiple files.
+permalink: /rename-multiple-files/
+---
+
+<p>
+  Renaming multiple files manuallying can be really annoying. Using the <code>rename</code> command in the shell we can easily
+  re-write the names of multiple files. It is already pre-installed on ubuntu/debian machines.
+</p>
+
+<p>
+  I'll use renaming tv episodes as an example. to rename a file from <em>"episode 1 name-of-episode.mkv"</em> to
+  <em>"S01E01 name of episode.mkv"</em> type the following command in a terminal in the directory of your files:
+</p>
+
+<p>
+  <code>rename -n -e 's/episode(\d+)/S01E$1/' *.mkv</code>
+</p>
+
+<p>
+  Breaking each part of the command down we have:
+  <ul>
+    <li><code>'s/</code> = substitute </li>
+    <li><code>episode</code> = search for 'episode' string in original file</li>
+    <li><code>(\d+)</code> = match 1 or more digits from earlier</li>
+    <li><code>/</code> = end of search string, start of substitute string</li>
+    <li><code>S01E</code> = insert this string, replacing "episode" </li>
+    <li><code>$1</code> = insert digits from <code>(\d+)</code> </li>
+    <li><code>/'</code> = end of substitute string</li>
+    <li><code>*.mkv</code> = wildcard '*' symbol takes anything after 'episode 1' and inputs it for any mkv file type</li>
+  </ul>
+</p>
+
+<p>
+  The <code>-n</code> argument shows you a preview of the changes to relevant files in the directory. Remove it and repeat the command to execute renaming your files. To learn more about the rename command, type <code>rename -man</code> to bring up the manual.
+</p>
