@@ -309,7 +309,7 @@ figcaption {
 /*----------------------------------------------------------------------------*/
 /*MOBILE/RESPONSIVE STYLES*/
 /*----------------------------------------------------------------------------*/
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   /* HEADER STYLES */
   .header h1 {
     padding: 1vh 0 0.5vh 1rem;
