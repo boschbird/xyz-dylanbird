@@ -146,14 +146,16 @@ figcaption {
   vertical-align: center;
   justify-content: center;
 }
-.social-icon img{
+.social-icon img {
   filter: brightness(0%);
   max-width: 70%;
 }
-.social-link:hover {
+.social-link:hover,
+.social-link:active {
   background: white;
 }
-.social-icon img:hover {
+.social-icon img:hover,
+.social-icon img:active {
   filter: brightness(100%)
 }
 .social-list {
@@ -300,18 +302,94 @@ figcaption {
 }
 .blog-content > ul {
   color: hsl(000, 000%, 083%);
+  font-size: 1.0em;
   list-style-type: circle;
   margin-left: 2rem;
 }
 /*----------------------------------------------------------------------------*/
-/*CODE STYLES*/
+/*MOBILE/RESPONSIVE STYLES*/
 /*----------------------------------------------------------------------------*/
-.code-box {
-  background-color: #000;
+@media (max-width: 800px) {
+  /* HEADER STYLES */
+  .header h1 {
+    padding: 1vh 0 0.5vh 1rem;
+  }
+  .header-nav {
+    float: right;
+    margin-right: 1rem;
+    padding: 1vh 1vh 1vh 1vh;
+  }
+  /* BLOG STYLES */
+  .blog-recent {
+    display: none;
+  }
 }
-/*----------------------------------------------------------------------------*/
-/*ABOUT ME STYLES*/
-/*----------------------------------------------------------------------------*/
-.about-box {
-  background-color: #000;
+@media (max-width: 450px) {
+  /*GLOBAL STYLES*/
+  h1  { 
+    font-size: 1.5rem;
+    line-height: 0.8; 
+    color: #fff; /*white*/
+  }
+  h2 {
+    font-size: 1.5rem;
+    line-height: 0.8; 
+  }
+  h3 {
+    font-size: 0.8rem
+    line-height: 1.2;
+  }
+  p {
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1.2; 
+    margin-bottom: 1.0rem;
+  }
+  code {
+    font-size: 0.8rem;
+  }
+  /*SPLASH STYLES*/
+  .splash-home {
+    background-size: 80vh;
+  }
+  /* HEADER STYLES */
+  .header h1 a {
+    display: none;
+  }
+  .header-nav {
+    float: left;
+    margin-left: 3vh;
+  }
+  .header-nav > li {
+    padding: 1vh 0;
+    width: 15vw;
+  }
+  .header-nav a {
+    float: none;
+    display: inline-block;
+    font-size: 4.0vw;
+  }
+  /* FOOTER STYLES */
+  .footer {
+    padding: 5vh 0 3vh;
+  }
+  .footer-nav {
+    margin: 0 2vh 0; 
+    font-size: 4.0vw;
+  }
+  /* SOCIAL STYLES*/
+  .social-icon {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 99px;
+  }
+  .social-icon img {
+    filter: brightness(0%);
+    max-width: 60%;
+  }
+  /*BLOG STYLES*/ 
+  .blog-content > ul {
+    font-size: 0.8rem;
+    margin-left: 1.0rem;
+  }
 }
