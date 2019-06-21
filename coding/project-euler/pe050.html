@@ -1,0 +1,57 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe050/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 50: Consecutive prime sum</h2>
+    <p>
+      Which prime, below one-million, can be written as the sum of the most consecutive primes?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE050-Consecutive-prime-sum">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from prime_list import prime_list
+        
+        # create a list of primes below 1000000
+        primes = prime_list(10**6)
+        # create a set of primes for quick hash lookup
+        set_primes = set(primes)
+
+        # assuming sequence starts somewhere at the beginning of the
+        # primes list (which makes sense cause we want the max amount
+        # of consecutive numbers)
+        sum_seq = 0
+        prime_seq = []
+
+        for prime in primes:
+          sum_seq += prime
+          if sum_seq >= 10**6:
+            break
+          prime_seq.append(prime)
+
+        # now we have a much smaller list of numbers to 'slice' over
+
+        max_count = 0
+        answer = 0
+
+        for i in range(0,len(prime_seq)):
+          for j in range(i,len(prime_seq)+1):
+            # a subset of the primes_sequence
+            subset = prime_seq[i:j]
+            total = sum(subset)
+            count = len(subset)
+            if count > max_count and total in set_primes:
+              answer = total
+              max_count = count
+
+        print("Longest sequence of consecutive primes that sum to a prime, contains " + str(max_count) + " primes, and is equal to " + str(answer))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

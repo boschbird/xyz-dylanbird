@@ -1,0 +1,61 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe033/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 33: Digit cancelling fractions</h2>
+    <p>
+      The fraction 49/98 is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that 49/98 = 4/8, which is correct, is obtained by cancelling the 9s.
+
+      We shall consider fractions like, 30/50 = 3/5, to be trivial examples.
+
+      There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.
+
+      If the product of these four fractions is given in its lowest common terms, find the value of the denominator.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE033-Digit-cancelling-fractions">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        curious = []
+        
+        for n in range(11,100):
+          for d in range(11,100):
+            # fraction < 1
+            if n >= d:
+              pass
+            # non-trivial cases
+            elif n % 10 == 0:
+              pass
+            else:
+              digits_of_n = [int(i) for i in str(n)]
+              digits_of_d = [int(i) for i in str(d)]
+              # the common set of digits of n and d
+              common = set(digits_of_n).intersection(set(digits_of_d))
+              # only consider the case when just one digit in common
+              if len(common) == 1:
+                # get the digit from the set
+                digit = common.pop()
+                # find the remaining (uncancelled) digit in the numerator
+                digits_of_n.remove(digit)
+                n2 = digits_of_n.pop()
+                # find the remaining (uncancelled) digit in the denominator
+                digits_of_d.remove(digit)
+                d2 = digits_of_d.pop()
+                # don't divide by zero! and check if the fraction is 'curious'
+                if d2 != 0 and (n2/d2) == n/d:
+                  curious.append((n2,d2))
+
+        print(curious)
+
+        # the solution can be then calculated easily by hand
+        # or we could import the fraction module
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

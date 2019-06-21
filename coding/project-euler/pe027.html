@@ -1,0 +1,53 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe027/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 27: Quadratic primes</h2>
+    <p>
+      Considering quadratics of the form: n^2+an+b, where |a|<1000 and |b|≤1000.
+      Find the product of the coefficients, a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n=0.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE027-Quadratic-Primes">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from prime_module import check_prime
+        from prime_module import prime_iter
+
+        blist = list(prime_iter(1000))
+        blist2 = sorted([-1*x for x in blist])
+        blist = blist2 + blist
+
+        max_primes_list = []
+        max_primes_len = 0
+
+        for b in blist:
+          for a in range(-1000,1000):
+            n = 0
+            quad = b
+            primes = [quad]
+            
+            while True:
+              n += 1
+              quad = n*n + a*n + b
+              if check_prime(quad):
+                primes.append(quad)
+              else:
+                break
+            
+            if len(primes) > max_primes_len:
+              max_primes_list = primes
+              max_primes_len = len(max_primes_list)
+              pair = (a, b)
+
+        print(str(pair[0]) + " x " + str(pair[1]) + " = " + str(pair[0]*pair[1]))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

@@ -1,0 +1,38 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe047/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 47: Distinct primes factors</h2>
+    <p>
+      Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE047-Distinct-prime-factors">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from prime_factors import prime_factors
+
+        found = False
+        n = 1
+
+        while not found:
+          if (len(prime_factors(n)) == 4 \
+          and len(prime_factors(n+1)) == 4 \
+          and len(prime_factors(n+2)) == 4 \
+          and len(prime_factors(n+3)) == 4 ):
+            answer = (n,n+1,n+2,n+3)
+            found = True
+          else:
+            n += 1
+
+        print(answer)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

@@ -1,0 +1,56 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe012/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 12: Highly divisible triangular number</h2>
+    <p>
+      What is the value of the first triangle number to have over five hundred divisors?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE012-Highly-divisible-triangular-number">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        #use highly composite numbers as the upper and lower bounds
+
+        def factors(n):
+          #return the factors of a natural number 'n'
+          f = [1,n]
+          k = 2
+          #For each pair of factors, one of the factors in the pair
+          # are either square roots or less.
+          #This functions runs at O(sqrt(n)) 
+          while k < n**0.5+1:
+            if n % k == 0:
+              if n % k == k:
+                f.append(int(k))
+              else:
+                #if factor is not an square take the factor k and the factor n/k
+                f.append(int(k))
+                f.append(int(n/k))
+            k += 1
+          f.sort()
+          return f
+
+        #---------------------------------
+        fcount = 0
+        k = 1
+
+        while fcount < 500:
+          tri = k*(k+1) // 2 #solution to the series: k
+          f = factors(tri)
+          fcount = len(f)
+          k += 1
+
+        print(k)
+        print(fcount)
+        print(tri)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

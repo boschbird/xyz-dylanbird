@@ -1,0 +1,59 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe042/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 42: Coded triangle numbers</h2>
+    <p>
+      The nth term of the sequence of triangle numbers is given by, tn = n(n+1)/2; so the first ten triangle numbers are: <br />
+       <br />
+      1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ... <br />
+       <br />
+      By converting each letter in a word to a number corresponding to its alphabetical position and adding these values we form a word value. For example, the word value for SKY is 19 + 11 + 25 = 55 = t_10. If the word value is a triangle number then we shall call the word a triangle word. <br />
+       <br />
+      Using words.txt, a 16K text file containing nearly two-thousand common English words, how many are triangle words?  <br />
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE042-Coded-triangle-numbers">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        #create dictionary
+        alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        letter_values = {letter : (alphabet.index(letter)+1) for letter in alphabet}
+
+        # benefit of with statement: no need to close file
+        with open("words.txt", 'r') as file:
+          # Use file to refer to the file object
+
+           doc = file.read()
+
+           words = [word[1:-1] for word in doc.split(',')]
+
+        data = {}
+        for word in words:
+          num = 0
+          for letter in word:
+            num += letter_values[letter]
+          data[word] = num
+
+        # this tells me the max 'value' of each word so i know how
+        # many triangular numbers I need to compare them with
+        print(max(data.values()))
+
+        triangular = [n*(n+1)//2 for n in range(1,21)]
+
+        count = 0
+        for x in data.values():
+          if x in triangular:
+            count += 1
+
+        print(count)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

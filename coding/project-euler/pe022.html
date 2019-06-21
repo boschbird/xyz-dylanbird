@@ -1,0 +1,63 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe022/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 22: Names scores</h2>
+    <p>
+      Using names.txt, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.
+
+      For example, when the list is sorted into alphabetical order, COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. So, COLIN would obtain a score of 938 × 53 = 49714.
+
+      What is the total of all the name scores in the file?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE022-Names-scores">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        #open and read 'names.txt'
+        with open('names.txt',"r") as file1:
+          #create a single string of all names
+          name_string = file1.read()
+
+        #split string into list of names
+        namelist = name_string.split('","')
+        #"MARY becomes MARY etc. as split function does
+        #not deal with the first and last cases
+        namelist[0] = 'MARY'
+        namelist[-1] = 'ALONSO'
+
+        #sort list of names
+        name_sort = sorted(namelist)
+
+        #create dictionary of the alphabet
+        #A = 1, B = 2,...
+        alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        alphabet = {}
+        i = 1
+        for letter in alpha:
+          alphabet[letter] = i
+          i += 1
+
+        name_sum = 0 #sum of letter values in each name
+        n = 1 #nth name
+        total = 0 #total of letter values TIMES nth name
+
+        for name in name_sort:
+          name_split = list(name)
+          for letter in name_split:
+            name_sum += alphabet[letter]
+          total += n*name_sum
+          n += 1
+          name_sum = 0
+
+        print(total)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

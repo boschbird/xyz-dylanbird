@@ -1,0 +1,32 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe030/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 30: Digit fifth powers</h2>
+    <p>
+      Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE030-Digit-fifth-powers">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        sum_fifth_powers = []
+
+        #low limit = 10, otherwise it is not a sum of digits
+        # upper limit = 6 * 9^5 (6 digits all with base 9): just a nice guess
+
+        for num in range(10,6*(9**5)):
+          if num == sum([int(digit)**5 for digit in str(num)]):
+            sum_fifth_powers.append(num)
+
+        print(sum(sum_fifth_powers))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

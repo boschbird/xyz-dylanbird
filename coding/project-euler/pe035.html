@@ -1,0 +1,56 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe035/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 35: Circular primes</h2>
+    <p>
+      The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime. How many circular primes are there below one million?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE035-Circular-primes">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from prime_module import check_prime
+        from prime_module import prime_list
+
+        def rotate(arr):
+          # left rotate the order of elements of a list once
+          if len(arr) == 1:
+            return arr
+          else:
+            # pick the elements after the first element 
+            # and concatenate them with the first element in that order
+            return arr[1:] + arr[:1]
+
+        circ_primes = []
+
+        # pre-calculate all primes below 1,000,000
+        primes = prime_list(1000000)
+
+        for k in primes:
+
+          digits_of_k = [i for i in str(k)]
+
+          # create a list of circular numbers (by rotating the digits)
+          perms = []
+          for i in range(0, len(digits_of_k)):
+            p = ''.join(digits_of_k)
+            perms.append(int(p))
+            digits_of_k = rotate(digits_of_k)
+
+          # check if all circular numbers are primes (only checking the rotated primes)
+          if all([check_prime(j) for j in perms[1:]]):
+            circ_primes.append(perms[0])
+
+        # output the number of circular primes less than 1,000,000
+        print(len(circ_primes), circ_primes)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

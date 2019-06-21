@@ -1,0 +1,35 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe003/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 3: Largest Prime Factor</h2>
+    <p>
+      The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143? Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE003-Largest-prime-factor">here</a>.
+    </p>
+    </p>
+    <pre>
+      <code class="language-python">
+        test = 600851475143
+        n = 2
+        prime_factors = []
+
+        while n < test:
+          if test % n == 0:
+            test = test / n
+            prime_factors.append(n)
+          else:
+            n += 1
+        prime_factors.append(int(test))
+
+        print(max(prime_factors))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

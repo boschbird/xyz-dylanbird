@@ -1,0 +1,52 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe039/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 39: Integer right triangles</h2>
+    <p>
+      If p is the perimeter of a right angle triangle with integral length sides, {a,b,c}, there are exactly three solutions for p = 120: <br />
+       <br />
+      {20,48,52}, {24,45,51}, {30,40,50}  <br />
+       <br />
+      For which value of p ≤ 1000, is the number of solutions maximised?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE039-Integer-right-triangles">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from math import ceil
+        from statistics import mode
+
+        # just guessing an upper bound of side length
+        s = 500
+
+        # create a list of pythagorean triplets
+        # i.e. sets of side length for right-angled triangles
+        pytrip = []
+        for a in range(1,s):
+          for b in range(1,s):
+            # pythagoras
+            c = ((a*a + b*b)**0.5)
+            # c is float: checking if it is an integer
+            if ceil(c) == c:
+              # create triplet in a list to be summed later
+              pytrip.append([a,b,int(c)])
+
+        # create a data set of perimeters of right angle triangles
+        data = []
+        for triple in pytrip:
+          data.append(sum(triple))
+
+        # perimeter that occurs most frequently for every triples
+        # with s < 499
+        print(mode(data))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

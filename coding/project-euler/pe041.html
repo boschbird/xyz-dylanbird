@@ -1,0 +1,68 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe041/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 41: Pandigital prime</h2>
+    <p>
+      What is the largest n-digit pandigital prime that exists?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE041-Pandigital-Prime">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        # note: there are less pandigital numbers below N than there are primes, hence:
+        #1. create a list of (ordered) pandigital numbers
+        #2. check if they are prime
+
+        from itertools import permutations
+        from check_prime import check_prime
+
+        def pandigital_list(k):
+          """create a list of sorted pandigital numbers less than a given k-th digit number by permuting through a list of digits that increases from 1 to n"""
+
+          pandigitals = []
+          digits = [1]
+          maxpd = 1
+
+          # number of digits of max pandigital is less than the digits
+          # in the upper bound
+          while len(str(maxpd)) < k:
+            # 'permutations' generator sorts lexicographically
+            # hence the list will be ordered
+            table = list(permutations(digits))
+            
+            for tpl in table:
+              num = [str(x) for x in tpl]
+              num = ''.join(num)
+              pandigitals.append(int(num))
+            
+            maxpd = pandigitals[-1]
+
+            n = digits[-1]
+            digits.append(n+1) 
+
+          return pandigitals
+
+        # ------------------------------------------
+
+        pandigitals = pandigital_list(7)
+
+        maxprime = 2
+        for pd in pandigitals:
+          if check_prime(pd):
+            # as pandigitals is an ordered list (see 'permutations' doc)
+            # we can just take the next prime pd as maxprime
+            maxprime = pd
+
+        print(maxprime)
+
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

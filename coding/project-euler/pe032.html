@@ -1,0 +1,70 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe032/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 32: Pandigital products</h2>
+    <p>
+      We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once.
+      Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital. HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE032-Pandigital-products">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        digit = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+        table = []
+
+        # considering that d x dddd = dddd is 9 digits long:
+        # i is multiplicand
+        for i in range(1, 99 + 1):
+          # j is multiplier
+          for j in range(100, 9999 + 1):
+            # create strings of the digits of numbers
+            dig_of_i = [x for x in str(i)]
+            dig_of_j = [x for x in str(j)]
+            # disclude any number with a zero digit
+            if '0' in dig_of_i:
+              pass
+            elif '0' in dig_of_j:
+              pass
+              # the set() function naturally removes duplicates
+              # hence if number of items in set != digits in num:
+              # we must have duplicate numbers eg 44, or 282 (remove them)
+            elif len(set(str(i))) != len(dig_of_i):
+              pass
+            elif len(set(str(j))) != len(dig_of_j):
+              pass
+            elif len(set(dig_of_i).intersection(set(dig_of_j))) > 0:
+              pass
+            else:
+              prod = i*j
+              # create a list of numbers of the multiplicand and multiplier
+              m = [a for a in str(i)] + [b for b in str(j)]
+              # remaining digits from 1 to 9 not in m
+              remaining = [i for i in digit if i not in m]
+              p = [i for i in str(prod)]
+              # if digits in prod are the remaining digits then the whole equation
+              # is 1 through to 9 pandigital
+              if sorted(p) == sorted(remaining):
+                table.append((i,j,prod))
+
+        # removes duplicates of different orders of multiplicand and multiplier
+        # i.e. only counts 39 × 186 = 7254 and 186 x 39 = 7254 once!
+        total = []
+        for tpl in table:
+          if tpl[2] not in total:
+            print(tpl)
+            total.append(tpl[2])
+
+        print(sum(total))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

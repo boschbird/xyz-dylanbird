@@ -1,0 +1,63 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe046/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 46: Goldbach's other conjecture</h2>
+    <p>
+      It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square. It turns out that the conjecture was false. What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE046-Goldbachs-other-conjecture">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        # Odd composite numbers are numbers which are product of two or more prime numbers. i.e. odds that are not prime!
+
+        from prime_list import prime_list
+
+        def odd_composite(x):
+          """create an array of odd composites for all numbers less than x"""
+          odd_comp = []
+
+          # for every odd number 9 and up
+          for i in range(7,x,2):
+            for j in range(2,int(i**0.5)+1):
+              if i % j == 0:
+                odd_comp.append(i)
+          # clear doubles
+          return sorted([k for k in set(odd_comp)])
+
+        # some upper bound on a list of odd composite numbers
+        upper_bound = 10000
+        odd_comps = odd_composite(upper_bound)
+        # create a set of double square numbers, with max being 2*100^2
+        double_squares = set([2*(x*x) for x in range(1,100)])
+
+        # collect all numbers that confirm the conjecture
+        conjecture = []
+        for oc in odd_comps:
+          # list of primes less than the odd composite in question
+          primes = prime_list(oc)
+          i = len(primes) - 1
+          while i > 0:
+            # check if goldbach's conjecture is true
+            if oc - primes[i] in double_squares:
+              conjecture.append(oc)
+              break
+            i -= 1
+
+        # compare the odd composites with the numbers that confirm the conjecture
+        # and collect the ones that don't in 'answer'
+        answer = [num for num in odd_comps if num not in conjecture]
+
+        # output the first number that disproves Goldbach's other conjecture
+        print(min(answer))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

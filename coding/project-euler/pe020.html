@@ -1,0 +1,36 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe020/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 20: Factorial digit sum</h2>
+    <p>
+      Find the sum of the digits in the number 100!
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE020-Factorial-digit-sum">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        def factorial(n):
+          if n == 1:
+            return n
+          else:
+             return(n*factorial(n-1))
+
+        #turn the digits of 100! into a list of strings
+        flist = list(str(factorial(100)))
+
+        #make a new list of integers from the strings of flist
+        flist = list(map(int, flist))
+
+        #output sum of the strings in the list
+        print(sum(flist))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

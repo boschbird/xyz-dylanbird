@@ -1,0 +1,47 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe044/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 44: Pentagon numbers</h2>
+    <p>
+      Find the pair of pentagonal numbers, Pj and Pk, for which their sum and difference are pentagonal and D = |Pk − Pj| is minimised; what is the value of D?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE044-Pentagonal-Numbers">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        #just a guess at this stage
+        upper = 10000
+        P = [n*(3*n-1)//2 for n in range(1,10*upper+1)]
+        # upper bound is half the indices of the pentagonals
+        # as we have to sum the numbers together and check if they
+        # are pentagonal
+
+        #Easier to search in sets/dicts
+        Pdict = {num for num in P}
+
+        minD = P[upper-1]
+
+        data = []
+
+        for i in range(0,upper):
+          for j in range(0,upper):
+            S = P[i] + P[j]
+            D = abs(P[j] - P[i])
+            if (S in Pdict) and (D in Pdict):
+              data.append([i,j,S,D])
+              print([i,j,S,D])
+
+        print(data)
+
+        #Note: Nowhere in my code do I seek to minimise D, instead I have an arbitrary upper limit.
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

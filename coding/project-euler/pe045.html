@@ -1,0 +1,52 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe045/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 45: Triangular, pentagonal, and hexagonal</h2>
+    <p>
+      It can be verified that T_285 = P_165 = H_143 = 40755. Find the next triangle number that is also pentagonal and hexagonal.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE045-Triangular-Pentagonal-Hexagonal">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from math import ceil
+
+        # as all three types of numbers can be expressed as the
+        # solution of a quadratic, we can create simple test
+        # functions for them
+
+        def quad(a,b,c):
+          n = max((-b + (b*b - 4*a*c)**0.5) / (2*a), \
+          (-b - (b*b - 4*a*c)**0.5) / (2*a))
+          return n
+
+        def check_pent(P):
+          k = quad(3,-1,-2*P)
+          # check if k is an integer, if so it is pentagonal
+          if ceil(k) == k:
+            return True
+
+        def check_hex(H):
+          k = quad(2,-1,-H)
+          if ceil(k) == k:
+            return True
+
+        # just a guess of an upper bound
+        upper = 100000
+        # create a list of triangular numbers
+        triangular = [n*(n+1)//2 for n in range(1, upper)]
+        # then check for each tri number, if they are also pents and hexs
+        for tri in triangular:
+          if check_pent(tri) and check_hex(tri):
+            print(tri)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

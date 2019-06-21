@@ -1,0 +1,46 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe025/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 25: 1000-digit Fibonacci number</h2>
+    <p>
+      The Fibonacci sequence is defined by the recurrence relation: F_n = F_n−1 + F_n−2, where F_1 = 1 and F_2 = 1.
+      What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE025-1000-digit-Fibonacci-number">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        def fib_gen(n):
+          # more efficient than recursive function as it stores previous fib numbers
+          # in a and b
+            a = 0
+            b = 1
+            if n == 0:
+              return 'Bad input, requires arg > 0'
+            elif n == 1 or n == 2:
+              return 1
+            else:
+              for i in range(2, n + 2):
+                b, a = a + b, b
+              return a
+
+        i = 1 #index
+        k = '' #initialise string
+
+        while len(k) < 1000:
+          i += 1
+          k = str(fib_gen(i))
+          
+
+        print(len(k), i)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

@@ -1,0 +1,55 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe043/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 43: Sub-string divisibility</h2>
+    <p>
+      The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property. <br />
+       <br />
+      Let d1 be the 1st digit, d2 be the 2nd digit, and so on. In this way, we note the following: <br />
+       <br />
+      d2d3d4=406 is divisible by 2 <br />
+      d3d4d5=063 is divisible by 3 <br />
+      d4d5d6=635 is divisible by 5 <br />
+      d5d6d7=357 is divisible by 7 <br />
+      d6d7d8=572 is divisible by 11 <br />
+      d7d8d9=728 is divisible by 13 <br />
+      d8d9d10=289 is divisible by 17 <br />
+      Find the sum of all 0 to 9 pandigital numbers with this property. <br />
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE043-Sub-string-divisibility">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from itertools import permutations
+
+        # Create a (sorted) list of 0 to 9 pandigital string numbers
+        pandigitals = []
+        table = list(permutations([0,1,2,3,4,5,6,7,8,9]))
+          
+        for tpl in table:
+          num = [str(x) for x in tpl]
+          num = ''.join(num)
+          pandigitals.append(num)
+
+        print(len(pandigitals))
+
+        total = []
+        for pd in pandigitals:
+          if int(pd[1:4]) % 2 == 0 and int(pd[2:5]) % 3 == 0 \
+          and int(pd[3:6]) % 5 == 0 and int(pd[4:7])% 7 == 0 \
+          and int(pd[5:8]) % 11 == 0 and int(pd[6:9]) % 13 == 0 \
+          and int(pd[7:10]) % 17 == 0:
+            total.append(int(pd))
+
+        print(sum(total), total)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

@@ -1,0 +1,64 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe037/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 37: Truncatable primes</h2>
+    <p>
+      The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly we can work from right to left: 3797, 379, 37, and 3. Find the sum of the only eleven primes that are both truncatable from left to right and right to left.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE037-Truncatable-primes">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from prime_module import check_prime
+        from prime_module import prime_list
+
+        primes = prime_list(1000000)
+
+        trunc_primes = []
+
+        for x in primes:
+          # if prime doesn't end in 3, 5 or 7 it won't be left to right truncatable
+          if int(str(x)[-1]) not in [3, 5, 7]:
+            pass
+          # if prime doesn't begin with 2, 3, 5 or 7 it won't be right to left truncatable
+          elif int(str(x)[0]) not in [2, 3, 5, 7]:
+            pass
+          # if 0 is a digit in x, then it won't be truncatable
+          elif 0 in [int(i) for i in str(x)]:
+            pass
+          else:
+            # placemaker for x
+            test = x
+            # x is already prime, count it
+            count_l2r = 1
+            # iterate over the i-1 digits of x
+            for i in range(0, len(str(test))-1):
+              # slice x left to right
+              test = int(str(test)[1:])
+              if check_prime(test):
+                count_l2r += 1
+
+            test = x
+            count_r2l = 1
+            for i in range(0, len(str(test))-1):
+              test = int(str(test)[:-1])
+              if check_prime(test):
+                count_r2l += 1   
+
+            # if the number of digits equals the number of truncated
+            # primes, then store x
+            if count_l2r == count_r2l == len(str(x)):
+              trunc_primes.append(x)
+
+        print(sum(trunc_primes), trunc_primes)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

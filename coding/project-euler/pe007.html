@@ -1,0 +1,33 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe007/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 7: 10001st Prime</h2>
+    <p>
+      Calculate the 10001st prime number. Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE007-10001st-prime">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        from check_prime import check_prime
+
+        p = 1 # any odd greater than this could be prime
+        k = 10001 #the goal!
+        i = 1 # counter, and we know 2 is prime
+
+        while i < k:
+          p += 2 #increment +2 for odds
+          if check_prime(p):
+            i += 1 #count the primes
+
+        print(str(i) + "th prime number is " + str(p))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

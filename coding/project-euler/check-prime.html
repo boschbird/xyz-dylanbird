@@ -1,0 +1,41 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/check-prime/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Check if Prime</h2>
+    </p>
+    <pre>
+      <code class="language-python">
+      def check_prime(n):
+        """test if x is prime using a Sieve of Eratosthenes"""
+        #to account for negative primes
+        n = abs(n)
+
+        if type(n) != int:
+          return False
+        elif n == 1:
+          return False
+        elif n < 4:   #2 & 3 are prime
+          return True
+        elif n % 2 == 0:
+          return False
+        elif n % 3 == 0:
+          return False
+
+        else:
+          j = 5
+          while j <= int(n**0.5):
+            if n % j == 0:
+              return False
+            j = j + 1
+          return True
+      </code>
+    </pre>
+
+    
+  </div>
+</div>

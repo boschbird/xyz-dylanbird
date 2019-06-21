@@ -1,0 +1,31 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe002/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 2: Even Fibonacci Numbers</h2>
+    <p>
+      By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms. Run this solution at repl.io 
+      <a href="https://repl.it/@DylanBird/PE002-Even-Fibonacci-numbers">here</a>.
+    </p>
+    </p>
+    <pre>
+      <code class="language-python">
+        a, b = 1, 1
+        fib_sum = 0
+
+        while b < 4000000:
+          a, b = b, a + b
+          if b % 2 == 0:
+            fib_sum += b
+
+        print(fib_sum)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

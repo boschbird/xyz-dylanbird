@@ -1,0 +1,45 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe036/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 36: Double-base palindromes</h2>
+    <p>
+      The decimal number, 585 = 1001001001_2 (binary), is palindromic in both bases. Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE036-Double-base-palindromes">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        def is_palin(num):
+          #test if num is a palindrome, where num is an integer
+          n1 = str(num)
+          n2 = n1[::-1]
+
+          if int(n1) == int(n2):
+            return(True)
+          else:
+            return(False)
+
+        # pre-calculate all palindromes less than one million
+        palin_list = [i for i in range(1,1000000) if is_palin(i)]
+
+        total = 0
+
+        for n in palin_list:
+          # create a decimal version of a palindrome
+          # and remove the 0b prefix
+          b = int(str(bin(n))[2:])
+          if is_palin(b):
+            total += n
+
+        print(total)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

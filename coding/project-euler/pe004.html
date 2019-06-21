@@ -1,0 +1,50 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe004/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 4: Largest Palindrome Product</h2>
+    <p>
+      Find the largest palindrome made from the product of two 3-digit numbers. Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE004-Largest-palindrome-product">here</a>.
+    </p>
+    </p>
+    <pre>
+      <code class="language-python">
+        #1. How to test a number is a palindrome?
+          #Turn the number into a string 
+          #Reverse it 
+          #Back into an integer 
+          #Does it equal the initial number? Yes = Palindrome
+
+        #2. How to test the product of two 3-digit numbers is the LARGEST palindrome?
+         #First is the product a palindrome?
+         #Is it bigger than the last palindromic product? 
+
+        def is_palin(num):
+          #test if num is a palindrome, where num is an integer
+          n1 = str(num)
+          n2 = n1[::-1]
+
+          if int(n1) == int(n2):
+            return(True)
+          else:
+            return(False)
+
+        max_pal = 0
+
+        for i in range(100,1000):
+          for j in range(100,1000):
+            if is_palin(i*j) and i*j > max_pal:
+              max_pal = i*j
+
+        print(max_pal)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

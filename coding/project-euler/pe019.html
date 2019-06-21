@@ -1,0 +1,93 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe019/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 19: Counting Sundays</h2>
+    <p>
+      You are given the following information, but you may prefer to do some research for yourself.
+
+      -1 Jan 1900 was a Monday.
+
+      -Thirty days has September,
+      April, June and November.
+      All the rest have thirty-one,
+      Saving February alone,
+      Which has twenty-eight, rain or shine.
+      And on leap years, twenty-nine.
+
+      -A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
+
+      How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE019-Counting-Sundays">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        #First thing to check is what day of the week is 1 Jan 1901
+
+        monthnum = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+
+        monthnumleap = {1: 31, 2: 29, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+
+        #-----Inital date --------
+
+        #First weekday of 1 Jan 1901 is a Tuesday
+        weekday = 2
+        #days then return to 1
+        day = 1
+        #12 months then return to 1
+        month = 1 #use monthnum[datemonth] to return number of days (N.B. leap)
+        #count forever
+        year = 1901
+        #date format
+        date = (day, month, year)
+
+        initial_date = date
+        #-------------------------
+
+        #Target date
+        finalday = 31
+        finalmonth = 12
+        finalyear = 2000
+
+        finaldate = (finalday, finalmonth, finalyear)
+
+        count = 0
+
+        while finaldate != date:
+          
+          if month == 12 and day == 31:
+            year += 1
+            month = 1
+            day = 0
+          elif year % 4 == 0 and year % 100 != 0 and year % 400 != 0 and monthnumleap[month] == day:
+            month += 1
+            day = 0
+          elif monthnum[month] == day:
+            month += 1
+            day = 0
+
+          if weekday == 7:
+            weekday = 0
+
+          day += 1
+          weekday += 1
+          date = (day, month, year)
+            
+          if day == 1 and weekday == 7:
+            count += 1
+            
+
+        print("Number of Sundays on the 1st of each month between " \
+        + str(initial_date) + " and " + str(date) + " is: " \
+        + str(count))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

@@ -1,0 +1,30 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/prime-list/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Prime List Generator</h2>
+    </p>
+    <pre>
+      <code class="language-python">
+      def prime_list(x):
+        #create an array of primes for all numbers less than x
+        primes = [2]
+
+        for i in range(3,x,2):
+          for j in range(2,int(i**0.5)+1):
+            if i % j == 0:
+              break
+          else:
+            primes.append(i)
+
+        return primes
+      </code>
+    </pre>
+
+    
+  </div>
+</div>

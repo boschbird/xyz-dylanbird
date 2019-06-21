@@ -1,0 +1,28 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe016/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 16: Power digit sum</h2>
+    <p>
+      What is the sum of the digits of the number 2**1000?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE016-Power-digit-sum">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        k = 2**1000
+        k = str(k)
+        answer = 0
+        for x in k:
+          answer += int(x)
+        print(answer)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

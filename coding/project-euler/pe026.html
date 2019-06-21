@@ -1,0 +1,62 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe026/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 26: Reciprocal cycles</h2>
+    <p>
+      Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE026-Reciprocal-cycles">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        # ISSUE: all floating point fractions/decimals in base 10 
+        # are actually close approximations by binary fractions but not exactly
+        # Instead use a long division method
+
+        def unit_fraction(n,k):
+          """returns a string of 'k' numbers that are the decimals of the unit fraction 1/n using an algorithm which replicates long division"""
+          dec_list = [10 // n]
+          #remainder
+          r = 10 % n
+          for i in range(1, k):
+            dec = (10 * r) // n
+            r = (10 * r) % n
+            dec_list.append(dec)
+          return ''.join(map(str,dec_list))
+
+
+        def cyc_check(s):
+          """check if a string contains recurring cycles of numbers"""
+          substring = ''
+          # start from 100 to check long substrings only
+          for i in range(100,len(s)): 
+            substring = s[:i]
+            # if 'a substring'  == a string which starts after the end of the first substring
+            # and is the same length as 'a substring'
+            if substring == s[len(substring):2*len(substring)]:
+              return substring
+
+        start = time.time()
+
+        answer = 0
+        max_ss = ''
+        # check large, odd numbers only
+        for x in range(801,1000,2):
+          substring = cyc_check(unit_fraction(x,10000))
+          if type(substring) == str:
+            if len(max_ss) < len(substring):
+              max_ss = substring
+              answer = x
+
+        print(answer)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

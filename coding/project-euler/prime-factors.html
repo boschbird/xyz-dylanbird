@@ -1,0 +1,49 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/prime-factors/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Prime Factorisation Function</h2>
+    </p>
+    <pre>
+      <code class="language-python">
+        def prime_factors(n):
+          """Output the prime decomposition of n in a list such that
+          each factor is given as (prime, multiplicity)"""
+
+          # first test prime factor is 2
+          factor = 2
+          # initialise list of prime factors
+          primes = []
+
+          #recursively divide n by factors of increasing size
+          # N.B. as the factors are increasing we guarantee we will achieve primes
+          # N.B. 2, very important to have sqrt(n) as the upper bound as there
+          # is huge efficiency gains: all factors (except the largest final factor)
+          # will be < sqrt(n)
+
+          while factor < n**0.5:
+            if n % factor == 0:
+              n = n // factor
+              primes.append(factor)
+            else:
+              factor += 1
+
+          # once 'factor' reaches the magnitude of 'n'    
+          #the final factor will be the recursively-divided 'n' itself
+          primes.append(n)
+
+          # uses count to output primes and their multiplicities
+          return [(x,primes.count(x)) for x in set(primes)]
+
+          # alternatively (without multiplicities) just use:
+          # return list(set(primes))
+      </code>
+    </pre>
+
+    
+  </div>
+</div>

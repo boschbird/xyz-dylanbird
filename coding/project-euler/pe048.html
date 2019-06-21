@@ -1,0 +1,29 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe048/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 48: Self powers</h2>
+    <p>
+      Find the last ten digits of the series, 1**1 + 2**2 + 3**3 + ... + 1000**1000.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE048-Self-Powers">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        total = 0
+
+        for n in range(1,1001):
+          total += n**n
+
+        #the last ten digits of the series
+        print(str(total)[-10:])
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

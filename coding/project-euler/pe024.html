@@ -1,0 +1,40 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe024/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 24: Lexicographic permutations</h2>
+    <p>
+      What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE024-Lexicographic-Permutations">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        import itertools as it
+
+        # the itertools.permutation function returns all 
+        # iterables with sorted elements lexicographically
+
+        #produce a list of permutations as tuples of integers
+        perm_list = list(it.permutations(range(10)))
+
+        # generator comprehension: converts integers to strings
+        # inside the tuples, then converts 'tuples of strings'
+        # to 'strings'
+        str_perm = (''.join(map(str,s)) for s in perm_list)
+
+
+        # using next(itertools.islice(iterable, start, stop))
+        # to return the nth (lexicographic) permutation
+        n = 1000000
+        print(next(it.islice(str_perm,n-1,n)))
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

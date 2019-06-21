@@ -1,0 +1,41 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe005/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 5: Smallest multiple</h2>
+    <p>
+      What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?. Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE005-Smallest-multiple">here</a>.
+    </p>
+    </p>
+    <pre>
+      <code class="language-python">
+        from prime_list import prime_list
+
+        p = primelist(20)
+
+        a = 1 #minimum product of primes that also create the numbers 1 to 20
+
+        #multiple the primes together to get a lower bound
+        for k in p:
+          a = a*k
+
+        #if 'a' is not divisble by every integer number less than 20
+        #multiply 'a' by the necessary primes in 'p'
+        for n in range(1,20):
+          if a % n != 0:
+            for j in p:
+              if n % j == 0:
+                a = a*j
+
+        print(a)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

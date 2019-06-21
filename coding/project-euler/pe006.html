@@ -1,0 +1,29 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe006/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 6: Sum Square Difference</h2>
+    <p>
+      Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE006-Sum-square-difference">here</a>.
+    </p>
+    </p>
+    <pre>
+      <code class="language-python">
+        squares = [x**2 for x in range(1,101)]
+        SumOfSquares = sum(squares)
+
+        SquareOfSum = (sum(list(range(1,101))))**2
+
+        print(SquareOfSum - SumOfSquares)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

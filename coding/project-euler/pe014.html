@@ -1,0 +1,58 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe014/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 14: Longest Collatz sequence</h2>
+    <p>
+      The following iterative sequence is defined for the set of positive integers:
+
+      n → n/2 (n is even)
+      n → 3n + 1 (n is odd)
+      Which starting number, under one million, produces the longest chain?
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE014-Longest-Collatz-sequence">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        def countchain(num):
+          # a function which counts the number of steps
+          # in a collatz sequence, which terminates at 1
+
+          # check if key exists in dictionary 'memory'
+          if num in memory.keys(): 
+            return memory[num]
+          else:
+            if num % 2 == 0:
+              memory[num] = 1 + countchain(num//2)
+            else:
+              memory[num] = 1 + countchain((3*num+1)//2)
+
+          return memory[num]
+
+        # initialise dictionary
+        memory = {1: 1}
+
+        max_length = 0
+        answer = -1
+        top = 1000000
+
+        for n in range(top,500000,-1):
+          # place holder for countchain so we can
+          # reuse it in the if statement without
+          # running the function twice
+          path = countchain(n)
+          if path > max_length:
+            max_length = path
+            answer = n
+
+        print(answer, max_length)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>

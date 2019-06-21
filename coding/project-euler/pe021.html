@@ -1,0 +1,52 @@
+---
+title: Project Euler
+layout: default
+permalink: /coding/project-euler/pe021/
+---
+
+<div class="content-container">
+  <div class="page">
+    <h2>Problem 21: Amicable numbers</h2>
+    <p>
+      Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
+      If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.
+      Evaluate the sum of all the amicable numbers under 10000.
+      Run this solution at repl.io
+      <a href="https://repl.it/@DylanBird/PE021-Amicable-numbers">here</a>.
+    </p>
+    <pre>
+      <code class="language-python">
+        def factors(n):
+          #calculate the factors of 'n'
+          div = []
+          #Idea: all factors come in pairs
+          #this algorithm is O[sqrt(n)]
+          for f in range(1,int(n**0.5)+1):
+            #proper divisors only (not including n itself)
+            if f == 1:
+              div.append(1)
+            elif n % f == 0:
+              div.append(f)
+              div.append(n//f)
+          return(div)
+
+        #d(keys) = sum of factors
+        memory = {}
+        for a in range(1,10000+1):
+          memory[a] = sum(factors(a))
+
+        count = 0
+
+        for x in memory:
+          for y in memory:
+            if memory[x] == y and memory[y] == x and x != y:
+              print(x,y)
+              count += x
+
+        print(count)
+      </code>
+    </pre>
+    <h4><a href="/coding/">back to code menu</a></h4>
+    
+  </div>
+</div>
