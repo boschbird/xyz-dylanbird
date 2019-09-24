@@ -1,0 +1,28 @@
+---
+layout: post
+title: Move from AWS to Netlify for web hosting and deployment
+permalink: /aws-to-netlify/
+---
+
+<p>
+After looking at all the costs and the needs of this personal website, I decided to make the move to <a href="https://www.netlify.com/">Netlify</a> a few months ago. I followed this <a href="https://www.chrisanthropic.com/blog/2018/migrating-blog-from-aws-stack-to-netlify/">article</a> in order to simplify migrating. It made the move very easy.
+</p>
+<p>
+Beyond just costs, moving to Netlify was an easy choice as <a href="https://jekyllrb.com/">Jekyll</a> is used natively, which is a great build tool that makes it easy to create blogging micro-sites such as this one. Moreover, building and deployment is a lot easier now with Netlify, as previously discussed, I had a fairly complicated setup using AWS which is quickly summarised in the following map...
+</p>
+
+<figure class="blog-fig">
+  <img src=/images/old_aws_setup.png>
+</figure>
+<figcaption>
+  <p>
+    <em>The previous AWS deployment map.</em>
+  </p>
+</figcaption>
+
+<p>
+Netlify utilises my Github repo for web hosting so I was able to eliminate not only my s3 bucket, but also my CodePipeline from Github to the bucket. Furthermore Netlify is a fully fledged CDN so need for cloudflare, and they do free SSH Certificate verification to boot!
+</p>
+<p>
+Now deploying is as easy as add/commit/pushing to my remote repo and Netlify takes care of the rest :)
+</p>

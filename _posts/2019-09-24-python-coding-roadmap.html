@@ -1,0 +1,173 @@
+---
+layout: post
+title: Coding Roadmap - Python
+permalink: /python-coding-roadmap/
+---
+<p>
+I was recently asked at work to prepare a short-ish guide on how to start coding based on my own experience. The following is a revised version not just for meteorologists but for anyone who is interested but doesn't know where to begin, with a bit of emphasis on scientific computing.
+</p> 
+<p>
+Learning to code/program can seem for some to be an insurmountable task, particularly at the very beginning. <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> is a beginner friendly language with lots of great learning pathways and many tools and libraries to help you get the job done, no matter what it is you are aiming to achieve. However, Python's popularity is a double-edged sword: a plethora of online resources can make it very easy to begin, but also very easy to get lost i.e. too many learning pathways!
+<br>
+<br>
+Also, for those of you who feel like you are too old to learn something like Python, to that I say nonsense! For one, Python is named after 'Monty Python' which is clearly not the most modern of comedy troupes, and just like its namesake, it is well-liked and dare I say fun! So, forget about any university courses based on C+ or FORTRAN that may have caused you to disavow programming forever!
+<br>
+<br>
+Anyway, hopefully this little guide can help to ease any initial stresses and get you motivated to learn more.
+</p>
+<br>
+<h3>Step 0: Setup</h3>
+<p>
+<em>You can go straight to Step 1 and comeback to this later, I did :)</em>
+<br>
+<br>
+<em><b><u>No Setup</u></b></em>
+<br>
+Considering the step this section is listed under you may think this paragraph a little paradoxical. However, there are so many ways to jump straight into coding without any setup at all and only require you to setup an account (also if you already have a Facebook or Google account you can generally sign in using those which makes this task even easier). Here is the list:
+    <ul>
+        <li><a href="https://repl.it/">Repl.it</a>: it creates a place to save all of your python (.py) files, and allows you to run them in the web-browser, which is way easier than creating a Python environment at home.</li>
+        <li><a href="https://trinket.io/">Trinket.io</a>: pretty much the same as above, but I prefer repl.it</li>
+    </ul> 
+</p>
+<p>
+<em><b>Anaconda</b></em>
+<br>
+In order to use Python to its fullest capacity you will need to setup your computer properly (eventually). Luckily there is already a great Python distribution (i.e. a suite of installation packages) called <a href="https://www.anaconda.com/">Anaconda</a> that does all the work for you that can be downloaded <a href="https://www.anaconda.com/distribution/">here</a>. If you are finding this step really difficult please ask google or someone else who knows a bit about Python to guide you there. It never hurts to ask for help!
+</p>
+<p>
+<em><b>Python 2.x or 3.x?</b></em>
+<br>
+Which version should you download? Well first off you need to make sure you are downloading the version compatible with your OS (i.e. Windows, MacOS or Linux). Secondly, you can choose between Python 2.x or 3.x. However, I believe you should download Python 3.x as most online tutorials will reference this more current version of Python. But in general, it is important to note that there are still two different versions of Python floating around and if you see some code that contradicts something you've learnt elsewhere, this could be your issue!
+</p>
+<p>
+<em>What have I just downloaded?</em>
+<br>
+Python has a lot of amazing inbuilt features (such as the ability to sum two or more numbers together, or print out a sentence), but it is also lacking many other things that really make it great. If you are keen on scientific computing, Anaconda has packaged most of (if not all) the important extra libraries such as:
+    <ul>
+        <li><a href="https://numpy.org/">NumPy</a> (useful for creating n-dimensional arrays, vectors or matrices and their manipulation)</li>
+        <li><a href="https://matplotlib.org/">Matplotlib</a> (a 2D plotting library that can output amazing graphs and more)</li>
+        <li><a href="https://pandas.pydata.org/">Pandas</a> (data structures and analysis)</li>
+        <li><a href="https://jupyter.org/">Jupyter</a> (enhanced interactive console similar to Wolfram's Mathematica Notebooks that makes it easy to learn python and display your output in a nice notebook format)</li>
+        <li><a href="https://www.spyder-ide.org/">Spyder</a> (an Interactive Desktop Environment or IDE with a Scientific bent that has a MATLAB-like feel and, similarly to Jupyter, it is a nice place to get programming as it does some syntax checking and nicely outputs your results)</li>
+        <li><a href="https://docs.anaconda.com/anaconda/packages/py3.7_linux-64/">and so many more...</a></li>
+    </ul>
+</p>
+<p>
+This can also be <em>a really great time to ask for help</em>, from a friend or a work buddy. Setting up your Python environment can often be one of if not the most intimidating steps! Also, playing around with Jupyter Notebook is highly recommended.
+</p>
+<p>
+Ok, take a breath… And now for something completely different:
+</p>
+<br>
+<h3>Soft Skills 1: Google it!</h3>
+<p>
+If you already feel like you're drowning in lingo do not fret! Most of that jargon I just used is a google search away and you will pick things up as you go. This skill of web-searching your problems will be a common theme in your programming education. The best programmers in the world look for existing solutions to their current problems instead of repeating themselves, as every programmer is a special type of lazy ;). Which leads on nicely to my favourite programming philosophy, the <strong>DRY principle</strong>:
+</p>
+<p style="text-align: center">
+    <em><b>D</b>on't <b>R</b>epeat <b>Y</b>ourself</em>
+</p>
+<p>
+This means if there is already a solution out there, feel free to copy it, but make sure you try and understand a little bit about how it works. It also means don't repeat the same code over and over again if you can get the computer to copy it for you.
+</p>
+<p>
+<strong>HANDY TIP</strong>: Google is your best friend and so is <a href="https://stackoverflow.com/">stackoverflow.com</a>. I cannot stress this enough, if you are having a problem with something, odds are, so have at least a million other people and solutions to your problems are generally a google search away! Also get to know people who know about Python. Most computer geeks are super happy to give you an answer as it gives them an opportunity to brush up on their underused skills and show off.
+</p>
+<br>
+<h3>Step 1: Learn the Syntax</h3>
+<p>
+Sometimes you gotta learn to crawl before you can walk, and for programming that means learning the syntax. Luckily there are so many great ways to learn Python basics interactively.
+I can recommend the following websites for learning the basics of Python syntax in an easy and fun way:
+    <ul>
+        <li><a href="https://www.sololearn.com/Play/Python/">Sololearn</a>: This site holds your hand the whole way which is great for beginners! The questions and answers are all done in the web-browser making it very easy to learn and play around.</li>
+        <li><a href="https://www.codecademy.com/learn/learn-python">Code Academy</a>: this is an oldie but a goodie. Unfortunately Python 3 is behind a paywall but you can still learn Python 2 for free.</li>
+        <li><a href="https://docs.python.org/3/tutorial/index.html">Python.org</a>: A less-fun but completely official tutorial for all things Python 3.7. You will need to use your own Repl.it account, or Jupyter version, or Spyder IDE etc. to type up and execute your code, if you prefer to go it alone.</li>
+        <li><a href="https://learnpythonthehardway.org/book/intro.html">Learn Python the Hard Way</a>: this is a link to the pdf of an older version of a famous book that has received many accolades, but alas I have yet to read. This version is for Python 2.x enthusiasts, and Python 3.x can be bought as a pdf or hardcopy online.</li>
+    </ul>
+</p>
+<p>
+For glossaries on Python methods and functions see:
+    <ul>
+        <li><a href="https://www.w3schools.com/">https://www.w3schools.com/</a></li>        
+        <li><a href="https://docs.python.org/3.7/reference/index.html">https://docs.python.org/3.7/reference/index.html</a></li>        
+    </ul>
+</p>
+<p>
+<em>Special mention</em> <a href="http://pythontutor.com/visualize.html#mode=edit">pythontutor.com</a>: allows you to copy and paste your python code, and iterate through each step to understand how 'if/else' and 'for loops' operate. I found this very useful when I started out, and I still use it for naïve debugging.
+</p>   
+<br>
+<h3>Step 2: What do I do now???</h3>
+<p>
+I found this to be the hardest step in my Python education. You've got the Python environment combined with a little bit of know how and so beckons the question: <em>"What do I do with it?"</em>. And odds are you will hardly feel like an expert just yet.
+</p>
+<p>
+The way I see it, you can <st>follow two paths</st>, learn even more Python, in particular, their scientific libraries or practice python by writing up your own code. I often bounce between these two goals.
+</p>
+<p>
+<em><b>Data Science starter</b></em>
+For a guide on websites that can teach you a bit more about using and displaying data see:
+    <ul>
+        <li><a href="https://www.kaggle.com/learn/overview">https://www.kaggle.com/learn/overview</a>There are free short courses on data analysis and data science that can help to familiarise you with NumPy, Pandas and Matplotlib and more.</li>
+        <li>more to come (maybe)</li>
+    </ul>
+</p>
+<p>
+<br>
+<h3>Soft Skills 2: The Text Editor</h3>
+<p>
+Now that you are feeling really confident you may like to start coding on your own computer, i.e. out of the browser. To do this you need to use an IDE like Spyder, Jupyter Notebook (both of which come with Anaconda as mentioned previously) OR you can use an awesome text editor:
+
+<ul>
+    <li>I recommend <a href="">Sublime Text</a>, as it is really lightweight like Vim, but has a lot of extra functionality and is also completely free! It will prompt you to pay for it but that is completely optional. The power of Sublime Text is in its <a href="https://packagecontrol.io/installation">Package Control</a> which allows you to setup a whole host of options such as debugging syntax highlight and delinting.</li>
+    <li><a href="https://www.vim.org/">Vim</a> is freely available, pretty bare bones but gets the job done and is very popular. Here is a free interactive tutorial at <a href="https://www.openvim.com/">https://www.openvim.com/</a>. There is plenty of documentation on how to use it <a href="https://realpython.com/vim-and-python-a-match-made-in-heaven/">here</a>.</li>
+    
+    <li><a href="https://atom.io/">Atom</a> is also a very popular option, similar to Sublime Text, and is developed at GitHub.</li>
+</ul>
+</p>
+<p>
+An inspirational quote and segue for the next section:
+</p>
+<p styles="text-align: center">
+    <em>"What I cannot create, I do not understand"</em> – Richard Feynman
+</p>
+<p>
+<em><b>Code for yourself and get inspired!</b></em>
+Here are a few of my favourite sites that helped me to reinforce what I learn and inspire me to begin my own projects:
+    <ul>
+        <li><a href="https://projecteuler.net/">https://projecteuler.net/</a>: pronounced OIL-er. For the mathematically inclined, this is a great place to test your interpretation of a variety of maths problems that can only be solved with a program. It is great for testing nice and short code and getting quick feedback, i.e. you either solved it or you didn't!</li>
+        <li><a href="https://github.com/karan/Projects">https://github.com/karan/Projects</a>: A mega-list of inspiring ideas on micro-projects that can be built with Python.</li>    
+        <li><a href="https://github.com/danistefanovic/build-your-own-x">https://github.com/danistefanovic/build-your-own-x</a>: Same as above!</li>
+        <li><a href="https://www.hackerrank.com/dashboard">https://www.hackerrank.com/dashboard</a>: A coding competition site that has several different areas that you can jump into and test your skill!</li>
+    </ul>
+</p>
+<p>
+There are so many of these sites that can help practice your new found skills: Google is your friend! If you find any more that you have actually used yourself and would recommend to others, let me know!
+</p>
+<p>
+<em>Special Mention</em>: Ask if there is a project at work you can assist with! There may be a few projects in your workplace that require more contributors, and reading others code can be a useful way of understanding how programming is used in the real world. Also, contributing to a project can make your nearly learned skills seem so much more tangible, as well as rewarding.
+</p>
+<br>
+<h3>Step 3: Just the tip of the iceberg!</h3>
+<p>
+There are so many different directions to go from here. Here are a few:
+</p>
+<p>
+<strong>Learn version control with <a href="https://en.wikipedia.org/wiki/Git">Git</a>:</strong>
+<br>
+	Git is great for version control, and using <a href="https://github.com ">GitHub</a> allows you to create a remote repository (i.e. a folder) online for your project code for you to share with others. It can form a sort of digital resume of your work. Github has a great guide to get you started at <a href="https://try.github.io/">https://try.github.io/</a>
+</p>
+<p>
+<strong>More advanced python topics:</strong>
+    <ul>
+        <li>Algorithmic thinking and object oriented programming in python with this great <a href="https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-11">edX MOOC from MIT</a>. It is amazing but takes a fair bit of work and time on your part and is a quick deep dive into some great concepts such as sorting and when and how to use 'classes'.</li>
+        <li>Decorators: <a href="https://realpython.com/primer-on-python-decorators/">https://realpython.com/primer-on-python-decorators/</a></li>
+    </ul>
+</p>
+<p>
+<strong>Build something!:</strong>
+    <ul>
+        <li>Inspire yourself and others buy building something of your own. A nice guide to how to do that with Python is given in the following <a href="https://realpython.com/what-can-i-do-with-python/">article</a>.
+    </ul>
+</p>
+<p>
+    Well that's it! I hope this article has helped to start you off on your own coding adventure. Good luck :)
+</p>
